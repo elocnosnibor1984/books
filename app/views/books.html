@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+  <div id="container">
+  <nav>
+  <!-- {{session['user_id']}} -->
+  <!-- {{three_books}} -->
+    <h2>Welcome, {{alias[0]['alias']}}!</h2>
+    <p class="right"><a href="/books/add">Add Book and Review</a> <a href="/log_off">Logout</a></p>
+  </nav>
+  <div class="three_reviews">
+  <h3>Recent Book Reviews</h3>
+{%for book in three_books:%}
+<h4><a href="/books/{{book['book_id']}}">{{book['title']}}</a></h4>
+  <p><a href="/users/{{book['user_id']}}">{{book['alias']}}</a> says: {{book['review']}}</p>
+  <p>Posted on {{book['created_at']}}</p>
+{%endfor%}
+  </div>
+
+  <div class="all_titles">
+    <!-- {{all_titles}} -->
+    {%for title in all_titles:%}
+    <p><a href="">{{title['title']}}</a></p>
+    {%endfor%}
+  </div>
+
+   </div>
+  </body><!-- close container -->
+</html>

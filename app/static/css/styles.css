@@ -1,3 +1,18 @@
 * {
   font-family: monaco;
 }
+#container{
+	width: 800px;
+	margin: auto;
+	margin-top: 50px;
+}
+.right{
+	text-align: right;
+}
+.all_titles{
+	overflow: scroll;
+	height: 200px;
+	width: 300px;
+	display: inline-block;
+	vertical-align: top;
+}

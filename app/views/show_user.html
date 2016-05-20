@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+  <div id="container">
+  <nav>
+    <p class="right"> <a href="/books">Home</a><a href="/books/add">Add Book and Review</a> <a href="/log_off">Logout</a></p>
+  </nav>
+  <!-- {{user}} -->
+<h1>User Alias:{{user[0]['alias']}}</h1>
+
+<h3>Name: {{user[0]['name']}}</h3>
+
+<h3>Email: {{user[0]['email']}}</h3>
+
+<h3>Total Reviews: {{count[0]['num']}}</h3>
+
+<h2>Posted Reviews on the following books:</h2>
+{%for review in reviews:%}
+<p><a href="">{{review['title']}}</a></p>
+{%endfor%}
+
+  {{reviews}}
+  <!-- {{count}} -->
+
+
+   </div>
+  </body><!-- close container -->
+</html>

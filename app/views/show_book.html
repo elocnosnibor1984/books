@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+  <div id="container">
+  <nav>
+    <p class='right'><a href="/books">Home</a> <a href="/log_off">Logout</a></p>
+  </nav>
+  <h3>{{get_book[0]['title']}}</h3>
+
+  <h5>Author: {{get_book[0]['author']}}</h5>
+  <!-- {{get_book}} -->
+
+<div id="reviews">
+  <h3>Reviews:</h3>
+  {%for review in get_book:%}
+  <hr>
+  <p>Rating: {%for x in range(review['rating']):%}
+    <span style="color:gold">&#9733;</span>
+  {%endfor%}
+  {%for x in range(5-review['rating']):%}
+  <span>&#9734;</span>
+  {%endfor%}</p>
+  <p><a href="">{{review['alias']}}</a> says: {{review['review']}}</p>
+  <p>Posted on {{review['created_at']}}</p>
+  {%endfor%}
+  
+</div>
+
+<div>
+<!-- {{get_book[0]['book_id']}} -->
+  <h5>Add a review:</h5>
+  <form action="/add_review_db" method="post">
+  <input type="hidden" name="book_id" value="{{get_book[0]['book_id']}}">
+    <textarea name="review"></textarea>
+    <p>Rating: <select name="rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select></p>
+    <p><input type="submit" name="submit" value="Submit Review"></input></p>
+  </form>
+</div>
+  
+
+
+   </div>
+  </body><!-- close container -->
+</html>
